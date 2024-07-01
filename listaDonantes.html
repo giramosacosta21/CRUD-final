@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donar en vida-Donantes</title>
+    <!--Consigan: uso de favicon-->
+    <link rel="icon" href="static/img-ahijados/donar-en-vida-isotipo.png">
+    <!--css-->
+    <link rel="stylesheet" href="static/css/lista.css">
+    <!--Bootstrap iconos-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <!--padre-->
+    <header  class="container">
+        <div class="header-logo">
+            <img src="static/img-ahijados/donar-en-vida-marca.png" alt="logo">
+        </div>
+
+        <div class="header-titulo">
+            <h1>Lista de Donantes</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+
+        <h3 class="titulo">LISTA DE DONANTES</h3>
+        <div class="contenedor-cantidad">
+            <p class="cantidad">Cantidad de donantes:</p>
+            <p id="cantidad"></p>
+        </div>
+
+        <!--tabla-->
+        <div class="contenido-tabla">
+            <table>
+                <thead> <!--cabecera-->
+                    <tr> <!--fila-->
+                        <th>DNI</th> <!--encabezado-->
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Edad</th>
+                        <th>Grupo sanguineo</th>
+                        <th>Ahijados Compatibles</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th>E-mail</th>
+                        <!-- <td>&nbsp;</td> celda vacia o sin argumento -->
+                        <!-- <td>&nbsp;</td> -->
+                    </tr>
+                </thead>
+
+                <!--cuerpo de la tabla-->
+                <tbody id="tablaDonantes"><!-- Aquí irán las filas con los datos-->
+                    <tr>
+                        <td id="celda-dni"></td> <!--celda: contenido-->
+                        <td id="celda-nombre"></td>
+                        <td id="celda-apellido"></td>
+                        <td id="celda-fechaNacimiento"></td>
+                        <td id="celda-edad"></td>
+                        <td id="celda-GrupoSanguineo"></td>
+                        <td id="celda-ahijadosCompatibles"></td>
+                        <td id="celda-direccion"></td>
+                        <td id="celda-telefono"></td>
+                        <td id="celda-email"></td>
+                        <td><button class="boton-modificar"><i class="bi bi-pencil-square"></i><span>Modificar</span></button></td>  <!--BOTON MODIFICAR-->
+                        <td><button class="boton-eliminar"><i class="bi bi-trash"></i><span>Eliminar</span></button></td> <!--BOTON ELIMINAR-->
+                    </tr>
+
+                </tbody>
+                
+            </table>
+        </div>
+
+        <!--modificar datos personales-->
+        <div class="contenido-texto registro-contenido">
+            
+            <label class="cerrar" for="cerrar"><i class="bi bi-x-circle-fill"></i></label>
+            <input class="icono-cerrar" type="checkbox" id="cerrar">
+            
+            <h3 class="titulo-h3">Datos personales</h3>
+
+            <div class="formulario-registrar">
+                <form id="formulario-modificar" enctype="multipart/form-data" action="donantes/">
+                    <div>
+                       <label for="nuevo_nombre">Nombre:</label>
+                       <input type="text" name="nuevo_nombre" id="nuevo_nombre" placeholder="Ingrese su nombre completo" required>
+                    </div>
+                    
+                    <div>
+                        <label for="nuevo_apellido">Apellido:</label>
+                        <input type="text" name="nuevo_apellido" id="nuevo_apellido" placeholder="Ingrese su apellido" required>
+                    </div>
+
+                    <div>
+                        <label for="nuevo_dni">DNI:</label>
+                        <input type="number" name="nuevo_dni" id="nuevo_dni" placeholder="Ingrese su DNI" required> 
+                    </div>
+
+                    <div>
+                        <label for="nueva_fechaNacimiento">Fecha de Nacimiento:</label>
+                        <input type="date" name="nueva_fechaNacimiento" id="nueva_fechaNacimiento" min="" max="" required>
+                    </div>
+                    
+                    <div>
+                        <label for="nuevo_domicilio">Dirección:</label>
+                        <input type="text" name="nuevo_domicilio" id="nuevo_domicilio" placeholder="Ingrese su domicilio" required>
+                    </div>
+                    
+                    <div class="grupo-sanguineo">
+                        <label for="nuevo_grupoSanguineo">Seleccione grupo y factor sanguineo:</label>
+                        <select name="nuevo_grupoSanguineo" id="nuevo_grupoSanguineo">
+                            <option value="A-">A-</option>
+                            <option value="A+">A+</option>
+                            <option value="B-">B-</option>
+                            <option value="B+">B+</option>
+                            <option value="O-">O-</option>
+                            <option value="O+">O+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="AB+">AB+</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="nuevo_telefono">Telefono:</label>
+                        <input type="number" name="nuevo_telefono" id="nuevo_telefono" placeholder="Ingrese su telefono" required> 
+                    </div>
+
+                    <div>
+                        <label for="nuevo_mail">E-mail:</label>
+                        <input type="email" name="nuevo_mail" id="nuevo_mail" autocomplete="off" placeholder="example@gmail.com" required> 
+                    </div>
+
+                    <div>
+                        <label for="nuevo_ahijadoCompatible">Ahijados Compatibles:</label>
+                        <input class="nuevo_ahijadoCompatible" type="text" name="nuevo_ahijadoCompatible" id="nuevo_ahijadoCompatible" placeholder="Sin compatibilidad" required>
+                        <!-- <input class="nuevo_ahijadoCompatible" type="hidden" name="nuevo_ahijadoCompatible" id="nuevo_ahijadoCompatible" required> -->
+                    </div>
+
+                    <input class="button modificar-perfil" type="submit" value="Modificar Perfil">
+                    <p class="mensaje-error" id="mensaje-error"></p>
+                </form>
+            
+            </div>
+            
+        </div>
+
+        <!--Boton para volver a la página principal-->
+        <div class="contenido-boton-volver">
+            <a class="button button-volver" href="administracion.html"><i class="bi bi-caret-left-fill"></i> Volver a atrás</a>
+        </div>
+      
+    </main>
+
+    <!--java script-->
+    <script src="static/js/listadoDonante.js"></script>
+    <script src="static/js/mostrar-formulario.js"></script>
+</body>
+</html>

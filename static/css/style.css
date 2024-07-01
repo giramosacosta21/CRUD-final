@@ -1,0 +1,24 @@
+*{
+    margin: 0; /*eliminar el margen*/
+    padding: 0; /*eliminar el espacio-margen interior*/
+    box-sizing: border-box; /*el tamaño del contenedor se mantiene estable*/
+    text-decoration: none; /*eliminar decoración en los textos*/
+    list-style: none;/*elimina decoración de las listas*/
+}
+
+
+body{
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+form{
+    display: grid;
+    align-items: center;/*centra verticalmente*/
+    justify-content: center;/*centra horizontalmente*/
+    gap: .5em;
+}
